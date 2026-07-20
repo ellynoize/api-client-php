@@ -3,7 +3,7 @@
 /**
  * PHP version 7.3
  *
- * @category LoyaltyEventDiscount
+ * @category LoyaltyBurnSetting
  * @package  RetailCrm\Api\Model\Entity\Loyalty
  */
 
@@ -12,12 +12,12 @@ namespace RetailCrm\Api\Model\Entity\Loyalty;
 use RetailCrm\Api\Component\Serializer\Annotation as JMS;
 
 /**
- * Class LoyaltyEventDiscount
+ * Class LoyaltyBurnSetting
  *
- * @category LoyaltyEventDiscount
+ * @category LoyaltyBurnSetting
  * @package  RetailCrm\Api\Model\Entity\Loyalty
  */
-class LoyaltyEventDiscount
+class LoyaltyBurnSetting
 {
     /**
      * @var int
@@ -28,10 +28,18 @@ class LoyaltyEventDiscount
     public $id;
 
     /**
-     * @var \RetailCrm\Api\Model\Entity\Loyalty\LoyaltyEvent
+     * @var string
      *
-     * @JMS\Type("RetailCrm\Api\Model\Entity\Loyalty\LoyaltyEvent")
-     * @JMS\SerializedName("loyaltyEvent")
+     * @JMS\Type("string")
+     * @JMS\SerializedName("period")
      */
-    public $loyaltyEvent;
+    public $period;
+
+    /**
+     * @var int
+     *
+     * @JMS\Type("int")
+     * @JMS\SerializedName("percent")
+     */
+    public $percent;
 }

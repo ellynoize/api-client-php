@@ -203,8 +203,10 @@ EOF;
         "externalId": "10"
       },
       "bonus": {
-        "activationDate": "2020-11-27"
-      }
+        "activationDate": "2020-11-27",
+        "expireDate": "2021-11-27"
+      },
+      "comment": "Начисление бонусов за заказ"
     },
     {
       "type": "charge_for_order",
@@ -302,6 +304,11 @@ EOF;
     {
       "active": true,
       "id": 162,
+      "loyalty": {
+        "id": 5,
+        "currency": "RUB",
+        "minResidualCost": 1
+      },
       "customer": {
         "id": 5141,
         "externalId": "1",
@@ -643,7 +650,8 @@ EOF;
         "id": 168,
         "loyalty": {
             "id": 1,
-            "currency": "RUB"
+            "currency": "RUB",
+            "minResidualCost": 1
         },
         "customer": {
             "id": 5260,
@@ -701,14 +709,16 @@ EOF;
         "externalId": "9"
       },
       "bonus": {
-        "activationDate": "2020-11-27"
+        "activationDate": "2020-11-27",
+        "expireDate": "2021-11-27"
       },
       "loyaltyAccount": {
         "id": 147
       },
       "loyalty": {
         "id": 3
-      }
+      },
+      "comment": "Начисление бонусов за заказ"
     },
     {
       "type": "charge_for_order",
@@ -1035,8 +1045,25 @@ EOF;
   "order": {
     "bonusesCreditTotal": 0,
     "bonusesChargeTotal": 0,
+    "currency": "RUB",
     "privilegeType": "none",
     "totalSumm": 100,
+    "loyaltyEventDiscount": {
+      "id": 15,
+      "loyaltyEvent": {
+        "id": 7,
+        "privilegeType": "discount",
+        "privilegeSize": 10,
+        "privilegeSizePromo": 5,
+        "expirePeriod": "P30D",
+        "activatePeriod": 0,
+        "discountOneOrderOnly": true,
+        "discountForAllProducts": false,
+        "activatedAt": "2021-08-01 12:00:00",
+        "type": "birthday",
+        "beforePeriod": "P7D"
+      }
+    },
     "customer": {
       "personalDiscount": 0
     },
@@ -1049,6 +1076,12 @@ EOF;
         "bonusesChargeTotal": 0,
         "bonusesCreditTotal": 0,
         "initialPrice": 0,
+        "discounts": [
+          {
+            "type": "loyalty_event",
+            "amount": 10
+          }
+        ],
         "discountTotal": 0,
         "prices": [
           {
@@ -1068,7 +1101,12 @@ EOF;
       "maxChargeBonuses": 0,
       "maximum": true
     }
-  ]
+  ],
+  "loyalty": {
+    "currency": "RUB",
+    "name": "Основная программа",
+    "chargeRate": 1
+  }
 }
 EOF;
         $item = new SerializedOrderProduct();
@@ -1128,6 +1166,7 @@ EOF;
       "name": "Новая программа",
       "confirmSmsCharge": false,
       "confirmSmsRegistration": false,
+      "minResidualCost": 1,
       "createdAt": "2020-11-26 06:58:02",
       "activatedAt": "2020-11-26 06:59:52"
     },
@@ -1180,15 +1219,117 @@ EOF;
 {
     "success": true,
     "loyalty": {
+        "levels": [
+            {
+                "type": "bonus_percent",
+                "id": 21,
+                "name": "Базовый уровень",
+                "sum": 0,
+                "privilegeSize": 5,
+                "privilegeSizePromo": 3,
+                "creditConditions": [
+                    {
+                        "id": 31,
+                        "privilegeSize": 7.5,
+                        "privilegeSizePromo": 4.5,
+                        "items": [
+                            {
+                                "id": 101,
+                                "offer": {
+                                    "displayName": "Футболка, размер M",
+                                    "id": 1001,
+                                    "externalId": "offer-1",
+                                    "xmlId": "offer-xml-1",
+                                    "name": "Футболка",
+                                    "article": "T-SHIRT-M",
+                                    "vatRate": "20",
+                                    "properties": [],
+                                    "active": true,
+                                    "unit": {
+                                        "code": "pc",
+                                        "name": "Штука",
+                                        "sym": "шт."
+                                    },
+                                    "barcode": "1234567890123"
+                                }
+                            },
+                            {
+                                "id": 102,
+                                "product": {
+                                    "id": 2001,
+                                    "name": "Футболка",
+                                    "externalId": "product-1",
+                                    "active": true
+                                }
+                            },
+                            {
+                                "id": 103,
+                                "productGroup": {
+                                    "id": 3001,
+                                    "name": "Одежда",
+                                    "externalId": "group-1",
+                                    "active": true
+                                }
+                            },
+                            {
+                                "id": 104,
+                                "manufacturer": "RetailCRM"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "expirePeriod": "P180D",
+        "burnSettings": [
+            {
+                "id": 41,
+                "period": "P365D",
+                "percent": 50
+            }
+        ],
         "active": true,
         "blocked": false,
         "currency": "RUB",
         "id": 4,
         "name": "Битрикс новый",
+        "burnType": 2,
         "confirmSmsCharge": false,
         "confirmSmsRegistration": false,
+        "maxChargePercent": 30,
+        "minResidualCost": 1,
+        "events": [
+            {
+                "id": 51,
+                "privilegeType": "bonus",
+                "privilegeSize": 500,
+                "privilegeSizePromo": 500,
+                "expirePeriod": "P30D",
+                "activatePeriod": 0,
+                "discountOneOrderOnly": false,
+                "discountForAllProducts": true,
+                "activatedAt": "2021-03-17 18:09:43",
+                "type": "welcome",
+                "afterFirstOrder": true
+            },
+            {
+                "id": 52,
+                "privilegeType": "discount",
+                "privilegeSize": 15,
+                "privilegeSizePromo": 10,
+                "expirePeriod": "P7D",
+                "activatePeriod": 1,
+                "discountOneOrderOnly": true,
+                "discountForAllProducts": false,
+                "activatedAt": "2021-03-18 10:00:00",
+                "type": "birthday",
+                "beforePeriod": "P3D"
+            }
+        ],
         "createdAt": "2021-03-17 18:08:02",
-        "activatedAt": "2021-03-17 18:09:43"
+        "activatedAt": "2021-03-17 18:09:43",
+        "deactivatedAt": "2022-03-17 18:09:43",
+        "blockedAt": "2022-03-18 18:09:43"
     },
     "requiredFields": []
 }

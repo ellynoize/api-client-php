@@ -99,6 +99,13 @@ class Offer
      */
     public $properties;
 
+    /**
+     * @var bool
+     *
+     * @JMS\Type("bool")
+     * @JMS\SerializedName("active")
+     */
+    public $active;
 
     /**
      * @var float
