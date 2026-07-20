@@ -82,4 +82,12 @@ class Operation
      * @JMS\SerializedName("loyalty")
      */
     public $loyalty;
+
+    /**
+     * @var string
+     *
+     * @JMS\Type("string")
+     * @JMS\SerializedName("comment")
+     */
+    public $comment;
 }

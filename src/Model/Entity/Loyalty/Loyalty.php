@@ -31,6 +31,22 @@ class Loyalty
     public $levels;
 
     /**
+     * @var string
+     *
+     * @JMS\Type("string")
+     * @JMS\SerializedName("expirePeriod")
+     */
+    public $expirePeriod;
+
+    /**
+     * @var \RetailCrm\Api\Model\Entity\Loyalty\LoyaltyBurnSetting[]
+     *
+     * @JMS\Type("array<RetailCrm\Api\Model\Entity\Loyalty\LoyaltyBurnSetting>")
+     * @JMS\SerializedName("burnSettings")
+     */
+    public $burnSettings;
+
+    /**
      * @var bool
      *
      * @JMS\Type("bool")
@@ -71,6 +87,14 @@ class Loyalty
     public $name;
 
     /**
+     * @var int
+     *
+     * @JMS\Type("int")
+     * @JMS\SerializedName("burnType")
+     */
+    public $burnType;
+
+    /**
      * @var bool
      *
      * @JMS\Type("bool")
@@ -85,6 +109,30 @@ class Loyalty
      * @JMS\SerializedName("confirmSmsRegistration")
      */
     public $confirmSmsRegistration;
+
+    /**
+     * @var int
+     *
+     * @JMS\Type("int")
+     * @JMS\SerializedName("maxChargePercent")
+     */
+    public $maxChargePercent;
+
+    /**
+     * @var float
+     *
+     * @JMS\Type("float")
+     * @JMS\SerializedName("minResidualCost")
+     */
+    public $minResidualCost;
+
+    /**
+     * @var \RetailCrm\Api\Model\Entity\Loyalty\LoyaltyEvent[]
+     *
+     * @JMS\Type("array<RetailCrm\Api\Model\Entity\Loyalty\LoyaltyEvent>")
+     * @JMS\SerializedName("events")
+     */
+    public $events;
 
     /**
      * @var DateTime

@@ -68,6 +68,14 @@ class OrderProduct
     public $initialPrice;
 
     /**
+     * @var \RetailCrm\Api\Model\Entity\Orders\Items\AbstractDiscount[]
+     *
+     * @JMS\Type("array<RetailCrm\Api\Model\Entity\Orders\Items\AbstractDiscount>")
+     * @JMS\SerializedName("discounts")
+     */
+    public $discounts;
+
+    /**
      * @var float
      *
      * @JMS\Type("float")

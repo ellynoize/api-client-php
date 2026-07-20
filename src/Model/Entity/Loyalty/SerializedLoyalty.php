@@ -23,6 +23,14 @@ class SerializedLoyalty
      * @var string
      *
      * @JMS\Type("string")
+     * @JMS\SerializedName("currency")
+     */
+    public $currency;
+
+    /**
+     * @var string
+     *
+     * @JMS\Type("string")
      * @JMS\SerializedName("name")
      */
     public $name;

@@ -66,4 +66,12 @@ class LoyaltyLevel
      * @JMS\SerializedName("privilegeSizePromo")
      */
     public $privilegeSizePromo;
+
+    /**
+     * @var \RetailCrm\Api\Model\Entity\Loyalty\LoyaltyLevelCondition[]
+     *
+     * @JMS\Type("array<RetailCrm\Api\Model\Entity\Loyalty\LoyaltyLevelCondition>")
+     * @JMS\SerializedName("creditConditions")
+     */
+    public $creditConditions;
 }

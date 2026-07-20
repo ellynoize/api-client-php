@@ -27,4 +27,12 @@ class OperationBonus
      * @JMS\SerializedName("activationDate")
      */
     public $activationDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @JMS\Type("DateTime<'Y-m-d'>")
+     * @JMS\SerializedName("expireDate")
+     */
+    public $expireDate;
 }
