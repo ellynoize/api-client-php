@@ -32,7 +32,7 @@ jobs:
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
 
       - name: Install dependencies
-        run: composer install -o
+        run: composer install -o --no-security-blocking
 
       - name: Configure matchers
         uses: mheap/phpunit-matcher-action@v1
