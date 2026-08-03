@@ -1297,6 +1297,7 @@ EOF;
         "confirmSmsCharge": false,
         "confirmSmsRegistration": false,
         "maxChargePercent": 30,
+        "chargeRate": 1,
         "minResidualCost": 1,
         "events": [
             {
