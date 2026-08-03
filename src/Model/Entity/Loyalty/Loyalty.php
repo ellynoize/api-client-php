@@ -122,6 +122,14 @@ class Loyalty
      * @var float
      *
      * @JMS\Type("float")
+     * @JMS\SerializedName("chargeRate")
+     */
+    public $chargeRate;
+
+    /**
+     * @var float
+     *
+     * @JMS\Type("float")
      * @JMS\SerializedName("minResidualCost")
      */
     public $minResidualCost;
