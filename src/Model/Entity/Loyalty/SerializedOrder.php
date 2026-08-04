@@ -69,6 +69,7 @@ class SerializedOrder
      */
     public $delivery;
 
+
     /**
      * @var bool
      *
